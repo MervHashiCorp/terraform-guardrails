@@ -17,11 +17,15 @@ module "tfrun-functions" {
     source = "../common-functions/tfrun-functions/tfrun-functions.sentinel"
 }
 
-
+/*
 policy "allowed-providers" {
     enforcement_level = "soft-mandatory"
 }
 
 policy "deletion" {
+    enforcement_level = "soft-mandatory"
+}
+*/
+policy "tags" {
     enforcement_level = "soft-mandatory"
 }
