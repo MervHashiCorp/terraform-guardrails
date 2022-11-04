@@ -24,6 +24,13 @@ violatingResources = filter resourcesBeingDestroyed as address, rc {
         "is in the prohibited_list:", prohibited_list)
 }
 
+# Filter to resources with types in tags
+violatingResources = filter resourcesBeingDestroyed as address, rc {
+  rc.type in prohibited_list and
+  print(address, "is not allowed to be destroyed because its type", rc.type,
+        "is in the prohibited_list:", prohibited_list)
+}
+
 # Main rule
 main = rule {
  length(violatingResources) is 0
